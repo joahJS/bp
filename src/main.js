@@ -3,7 +3,7 @@ import { createPinia } from 'pinia'
 import App from './App.vue' // 최상위 App.vue 컴포넌트 지정
 import router from './router/index.js'
 import 'vue-global-api'
-import { ref } from "vue"
+
 
 import './assets/scss/style.css'
 

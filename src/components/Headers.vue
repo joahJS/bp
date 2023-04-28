@@ -1,18 +1,21 @@
 <template>
     <header>
-        <img src="pb/img/main_logo.png" alt="메인 로고 이미지">
-        <nav>
-            <div class="nav-main-list" v-for="item in navGroup" @mouseenter="item.openStat = true" @mouseleave="item.openStat = false">
-                <p>{{ item.title }}</p>
-                <ul v-if="item.openStat == true" class="nav-sub-list">
-                    <li v-for="subItem in item.childrens">
-                        <router-link :to="subItem.subTo">
-                            {{ subItem.subTitle }}
-                        </router-link>
-                    </li>
-                </ul>
-            </div>
-        </nav>
+        <div class="common-inner">
+            <img @click="locate.href='/'" data-main-logo src="/img/main_logo.png" alt="메인 로고 이미지">
+            <nav>
+                <div class="nav-main-list" v-for="item in navGroup" @mouseenter="item.openStat = true" @mouseleave="item.openStat = false">
+                    <p>{{ item.title }}</p>
+                    <ul v-if="item.openStat == true" class="nav-sub-list">
+                        <li v-for="subItem in item.childrens">
+                            <router-link :to="subItem.subTo">
+                                {{ subItem.subTitle }}
+                            </router-link>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        
     </header>
 </template>
 
@@ -24,7 +27,7 @@
             title: '회사소개',
             openStat: false,
             childrens: [
-                { subTo: '/grt', subTitle: '인사말' },
+                { subTo: '/intro', subTitle: '인사말' },
                 { subTo: '/hist', subTitle: '연혁' },
                 { subTo: '/cert', subTitle: '인증서' },
                 { subTo: '/path', subTitle: '오시는길' },
@@ -59,22 +62,41 @@
 
 <style lang="scss" scoped>
     header{
-        @apply flex;
+        @apply fixed top-0 w-full;
+
+        height: 5rem;
+        background-color:rgba(var(--white), 1);
+
+        > .common-inner {
+            @apply flex items-center;
+        }
+    }
+
+    [data-main-logo] {
+        @apply cursor-pointer;
+
+        width: 3rem;
+
     }
 
     nav {
         @apply flex;
 
         gap: .5rem;
+        margin-left: auto;
     }
 
     .nav-main-list {
+        @apply relative cursor-pointer;
+
         height: fit-content;
+        padding: 0.5rem;
     }
 
     .nav-sub-list {
-        @apply flex flex-col;
+        @apply flex flex-col absolute;
 
+        top: 2.5rem;
         gap: .5rem;
     }
 </style>

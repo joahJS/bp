@@ -22,3 +22,18 @@
 ::-webkit-scrollbar {
   background-color: transparent;
 }
+
+[data-common-head-title] {
+  @apply font-bold;
+  margin: 6rem 0 5rem;
+  font-size: var(--font32);
+}
+
+/* _variable.scss */
+:root {
+  --fontBase: 1rem;
+  --font32: 2rem;
+  --black: 0, 0, 0,;
+  --white: 255, 255, 255;
+  --main: ;
+}

@@ -1,15 +1,22 @@
-<script setup>
-import Headers from './components/Headers.vue';
-import HelloWorld from './components/HelloWorld.vue'
-</script>
+
 
 <template>
   <div id="wrap">
     <Headers />
+
+    <main id="mainView">
+      <router-view :key="$route.path"></router-view>
+    </main>
+
   </div>
 
 
 </template>
+
+<script setup>
+  import Headers from './components/Headers.vue';
+
+</script>
 
 <style scoped>
 .logo {
