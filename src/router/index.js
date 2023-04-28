@@ -1,19 +1,23 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Main from '@/pages/Main.vue'
 
+
+const routes = [
+  { path: '/', name: 'Main', component: Main },
+
+  //회사소개
+  {  
+      path: '/intro',
+      name: 'Intro',
+      component: () => import( /* webpackChunkName: 'Intro' */ '@/pages/Intro.vue')
+  },
+
+]
+
+
 const router = createRouter({
   history: createWebHistory(),
-  routes: [
-    { path: '/', name: 'Main', component: Main },
-
-    //회사소개
-    {  
-        path: '/intro',
-        name: 'Intro',
-        component: () => import( /* webpackChunkName: 'Intro' */ '@/pages/Intro.vue')
-    },
-
-  ],
+  routes,
 })
 
 export default router
