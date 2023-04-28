@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@font-face {
+  font-family: "SUIT Variable";
+  src: local("SUIT Variable"), url("@/assets/fonts/SUIT-Variable.woff2") format("woff2-variations");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+:root {
+  font-family: "";
+  font-size: "";
+}
+
+.common-inner {
+  max-width: 1450px;
+  margin: 0 auto;
+  padding: 0 0.5rem;
+}
+
+::-webkit-scrollbar {
+  background-color: transparent;
+}
