@@ -3,13 +3,17 @@ import Main from '@/pages/Main.vue'
 
 
 const routes = [
-  { path: '/', name: 'Main', component: Main },
+  { 
+    path: '/',
+    name: 'Main',
+    component: Main,
+  },
 
   //회사소개
   {  
-      path: '/intro',
-      name: 'Intro',
-      component: () => import( /* webpackChunkName: 'Intro' */ '@/pages/Intro.vue')
+      path: '/greet',
+      name: 'Greet',
+      component: () => import( /* webpackChunkName: 'Greet' */ '@/pages/Greet.vue')
   },
 
 ]

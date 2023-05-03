@@ -10,15 +10,22 @@
 
   </div>
 
-
+  <Footers />
 </template>
 
 <script setup>
   import Headers from './components/Headers.vue';
+  import Footers from './components/Footers.vue';
+
+
 
 </script>
 
 <style scoped>
+#mainView {
+  padding-bottom: 10rem;
+}
+
 .logo {
   height: 6em;
   padding: 1.5em;
