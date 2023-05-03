@@ -1,16 +1,28 @@
+@charset "UTF-8";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 @font-face {
-  font-family: "SUIT Variable";
-  src: local("SUIT Variable"), url("@/assets/fonts/SUIT-Variable.woff2") format("woff2-variations");
+  font-family: "NS";
+  src: local("NS-Variable"), url("/public/fonts/NS-B.ttf") format("ttf");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "NS-Neo";
+  src: local("NanumSquareNeo Variable"), url("/public/fonts/NS-Variable.ttf") format("woff2-variations");
   font-weight: 100 900;
   font-style: normal;
   font-display: swap;
 }
 :root {
-  font-family: "";
-  font-size: "";
+  font-family: "NS-Neo";
+  font-size: 16px;
+}
+
+#wrap {
+  min-height: calc(100vh - 12.5rem);
 }
 
 .common-inner {
@@ -19,8 +31,10 @@
   padding: 0 0.5rem;
 }
 
+/* ( 크롬, 사파리, 오페라, 엣지 ) 동작 */
 ::-webkit-scrollbar {
   background-color: transparent;
+  display: none;
 }
 
 [data-common-head-title] {
@@ -35,5 +49,5 @@
   --font32: 2rem;
   --black: 0, 0, 0,;
   --white: 255, 255, 255;
-  --main: ;
+  --main-clr: 13, 26, 91;
 }
