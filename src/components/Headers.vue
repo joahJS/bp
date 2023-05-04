@@ -48,8 +48,14 @@
 </template>
 
 <script setup>
-    const navModalSt = ref(false)
+    //store에서 영역별 데이터 import
+    import { usehfStore } from '@/store/hfStore'
+    import { storeToRefs } from 'pinia';
 
+    const hfStore = usehfStore()
+    const { navGroup } = storeToRefs(hfStore)
+
+    const navModalSt = ref(false)
     var mobVerIsShow = ref(false)
     
     // 해상도 1600px 이하일 시 
@@ -57,45 +63,6 @@
         mobVerIsShow.value = true
     }
 
-
-    const navGroup = ref([
-        {
-            navId: 0,
-            linkTo: '',
-            title: '회사소개',
-            subT: 'COMPANY',
-            openStat: false,
-            childrens: [
-                { subTo: '/greet', subTitle: '인사말' },
-                { subTo: '/hist', subTitle: '연혁' },
-                { subTo: '/cert', subTitle: '인증서' },
-                { subTo: '/path', subTitle: '오시는길' },
-            ]
-        },
-        {
-            navId: 1,
-            linkTo: '',
-            title: '제품소개',
-            subT: 'BUSINESS',
-            openStat: false,
-            childrens: [
-                { subTo: '/prod', subTitle: '제품' },
-            ]
-        },
-        {
-            navId: 2,
-            linkTo: '',
-            title: '고객지원',
-            subT: 'CUSTOMER',
-            openStat: false,
-            childrens: [
-                { subTo: '/noti', subTitle: '공지사항' },
-                { subTo: '/data', subTitle: '자료실' },
-                { subTo: '/news', subTitle: '뉴스' },
-                { subTo: '/cont', subTitle: '문의하기' },
-            ]
-        },
-    ])
 
     const subOpen = ref(false);
 
@@ -183,8 +150,10 @@
 
         li {
             padding:.25rem .75rem;
+            user-select: none;
 
             &:hover {
+                cursor: pointer;
                 font-weight: 900;
             }
         }
@@ -225,6 +194,7 @@
 
                 transition: .5s;
                 transform-origin: 12px -3px;
+                background-color: rgb(var(--white));
 
                 &:first-child {
                     transform: rotate(45deg);
@@ -278,7 +248,6 @@
 
         span {
             font-size: 1.25rem;
-            font-weight: 100;
         }
     }
 
@@ -290,7 +259,7 @@
         margin-top: 1.5rem;
 
         li {
-            font-weight: 100;
+            cursor: pointer;
 
             &:hover {
                 font-weight: 700;

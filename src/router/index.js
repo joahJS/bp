@@ -15,6 +15,21 @@ const routes = [
       name: 'Greet',
       component: () => import( /* webpackChunkName: 'Greet' */ '@/pages/Greet.vue')
   },
+  {  
+    path: '/hist',
+    name: 'History',
+    component: () => import( /* webpackChunkName: 'History' */ '@/pages/History.vue')
+  },
+  {  
+    path: '/cert',
+    name: 'Certificate',
+    component: () => import( /* webpackChunkName: 'Certificate' */ '@/pages/Certificate.vue')
+  },
+  {  
+    path: '/path',
+    name: 'Path',
+    component: () => import( /* webpackChunkName: 'Path' */ '@/pages/Path.vue')
+  },
 
 ]
 
