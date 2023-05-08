@@ -12,6 +12,7 @@
                     <div data-cert-detail-view v-if="item.detailView">
                         <div data-cert-detail-body>
                             <img :src="item.detailImg" alt="인증서 상세보기 이미지">
+                            <p data-cert-detail-close>클릭하여 닫기</p>
                         </div>
                     </div>
                 </div>
@@ -80,6 +81,7 @@
         width: 100vw;
         height: 100vh;
         background-color: rgba(var(--black) .85);
+        z-index: 9;
 
         [data-cert-detail-body] {
             @apply absolute;
@@ -92,7 +94,16 @@
                 @apply w-full;
 
                 object-fit: cover;
+                height: 80vh;
             }
+        }
+
+        [data-cert-detail-close] {
+            @apply absolute cursor-pointer;
+
+            bottom: -2rem;
+            right: 0;
+            color: rgba(var(--white), 1);
         }
     }
 </style>
