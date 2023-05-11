@@ -78,4 +78,15 @@
             }
         }
     }
+
+    //mediaquery
+    @media (max-width: 767px){
+        #subpHero {
+            height: 25rem;
+        }
+
+        [data-subp-tap] li {
+            padding: .5rem 0;
+        }
+    }
 </style>

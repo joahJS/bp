@@ -267,4 +267,16 @@
         }
     }
 
+    //mediaquery
+    @media (max-width: 767px){
+        nav {
+            display: none;
+        }
+
+        #navModalBtn {
+            margin-top: 0;
+            margin-left: auto;
+        }
+    }
+
 </style>
