@@ -81,6 +81,7 @@
             &:first-child {
                 font-size: 1.25rem;
                 margin-right: 1rem;
+                word-break: keep-all;
             }
 
             &:last-child {
@@ -89,6 +90,42 @@
             }
         }
 
+    }
+
+    //mediaquery
+    @media (max-width: 1280px){
+
+
+        [data-grt-texts] p {
+            font-size: var(--fontM);
+        }
+
+        [data-grt-sign-line] {
+            span:first-child {
+                font-size: var(--fontBase);
+            }
+
+            span:last-child {
+                font-size: 1.5rem;
+                flex-shrink: 0;
+            }
+        }
+    }
+
+    @media (max-width: 767px){
+        #grtGroup {
+            @apply flex-col;
+
+            > img {
+                @apply w-full;
+
+                max-height: 30vh;
+            }
+        }
+
+        [data-grt-subt] {
+            font-size: 1.25rem;
+        }
     }
 
 

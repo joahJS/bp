@@ -12,7 +12,11 @@
                     <div data-cert-detail-view v-if="item.detailView">
                         <div data-cert-detail-body>
                             <img :src="item.detailImg" alt="인증서 상세보기 이미지">
-                            <p data-cert-detail-close>클릭하여 닫기</p>
+                            <button class="common-button-style" data-cert-detail-close>
+                                <font-awesome-icon icon="fa-regular fa-circle-xmark" />
+                                
+                            </button>
+                            
                         </div>
                     </div>
                 </div>
@@ -25,9 +29,14 @@
     //store에서 영역별 데이터 import
     import { useIntroStore } from '@/store/introsStore'
     import { storeToRefs } from 'pinia';
+    
 
     const introStore = useIntroStore()
     const { certGroup } = storeToRefs(introStore)
+    
+
+
+    
 
 </script>
 
@@ -89,21 +98,70 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
+            background-color: rgba(var(--white), 1);
+            padding: .25rem;
+            border-radius: .5rem;
 
             img {
                 @apply w-full;
 
                 object-fit: cover;
-                height: 80vh;
+                max-height: 80vh;
+            }
+
+        }
+
+    }
+
+    //mediaquery
+    @media (max-width: 1279px){
+        #cerTexts {
+            gap: 1rem;
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        [data-cert-item] > article {
+            padding: 1rem;
+
+            [data-cert-thumnail] {
+                width: 40%;
+                margin-bottom: 1rem;
+            }
+
+            h3, p {
+                text-overflow: ellipsis;
+                overflow: hidden;
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                -webkit-line-clamp: 1;
+                font-size: var(--fontM);
             }
         }
 
-        [data-cert-detail-close] {
-            @apply absolute cursor-pointer;
+        [data-cert-detail-view] {
+            [data-cert-detail-body] img {
+                
+                
+                
+            }
+        }
+    }
 
-            bottom: -2rem;
-            right: 0;
-            color: rgba(var(--white), 1);
+    @media (max-width: 767px){
+        #cerTexts {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        [data-cert-item] > article {
+            
+        }
+
+        [data-cert-detail-view] {
+            [data-cert-detail-body] {
+                @apply w-full;
+                
+                max-width: 90vw;
+            }
         }
     }
 </style>

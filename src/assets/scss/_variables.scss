@@ -4,6 +4,7 @@
 
     //size
     --fontBase: 1rem;
+    --fontM: 14px;
     --font32: 2rem;
 
 
@@ -12,5 +13,9 @@
     --white: 255, 255, 255;
     --main-clr: 13, 26, 91;
     $main-clr: hsl(230, 75%, 20%);
+
+    //screen size
+    $breakpoint-mobile: 767px;
+    $breakpoint-tablet: 1280px;
     
 }

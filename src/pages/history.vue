@@ -152,6 +152,30 @@
             margin-left: 2.5rem;
             margin-top: 2.75rem;
             user-select: none;
+
+            li {
+                line-height: 1.75;
+            }
+        }
+    }
+
+    //mediaquery
+    @media (max-width: 767px){
+        [data-hist-line] {
+            @apply flex-col;
+        }
+
+        [data-hist-items] {
+            ul {
+                margin-left: 1.5rem;
+                margin-top: 1.5rem;
+
+                li {
+                    font-size: var(--fontM);
+                    line-height: 2;
+                }
+            }
+            
         }
     }
 </style>
