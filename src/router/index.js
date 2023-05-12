@@ -31,6 +31,14 @@ const routes = [
     component: () => import( /* webpackChunkName: 'Path' */ '@/pages/Path.vue')
   },
 
+  //고객지원
+  {  
+    path: '/noti',
+    name: 'Notice',
+    component: () => import( /* webpackChunkName: 'Notice' */ '@/pages/Notice.vue')
+  },
+
+
 ]
 
 
