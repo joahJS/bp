@@ -138,13 +138,6 @@
             }
         }
 
-        [data-cert-detail-view] {
-            [data-cert-detail-body] img {
-                
-                
-                
-            }
-        }
     }
 
     @media (max-width: 767px){

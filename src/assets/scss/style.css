@@ -69,8 +69,9 @@
 /* _variable.scss */
 :root {
   --fontBase: 1rem;
-  --fontM: 14px;
+  --fontM: 0.9rem;
   --font32: 2rem;
+  --fontMT: 1.25rem;
   --black: 0, 0, 0,;
   --white: 255, 255, 255;
   --main-clr: 13, 26, 91;

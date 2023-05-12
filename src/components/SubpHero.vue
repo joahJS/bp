@@ -24,7 +24,6 @@
     const hfStore = usehfStore()
     const { navGroup } = storeToRefs(hfStore)
 
-    console.log(navGroup.value[0].navId)
 
 </script>
 

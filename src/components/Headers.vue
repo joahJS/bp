@@ -69,7 +69,6 @@
     import { useRoute } from 'vue-router'
     const route = useRoute()
 
-    console.log(useRoute().path)
 
     watch(route, (to, from) => {
         //페이지 이동시 메뉴팝업 닫기
