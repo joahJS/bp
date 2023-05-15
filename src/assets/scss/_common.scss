@@ -80,3 +80,13 @@
         color: rgba(var(--white), 1);
     }
 }
+
+
+//말줄임효과 - 사용시 line clamp(줄 수)와 height(높이) 각 아이템에 맞게 수정
+.common-ellipsis {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
