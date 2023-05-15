@@ -31,11 +31,39 @@ const routes = [
     component: () => import( /* webpackChunkName: 'Path' */ '@/pages/Path.vue')
   },
 
+  //제품소개
+  {  
+    path: '/cate/:id',
+    name: 'Cate',
+    component: () => import( /* webpackChunkName: 'Cate' */ '@/pages/Cate.vue')
+  },
+  {  
+    path: '/cateDetail/:id',
+    name: 'CateDetail',
+    component: () => import( /* webpackChunkName: 'CateDetail' */ '@/pages/CateDetail.vue')
+  },
+
+
   //고객지원
   {  
     path: '/noti',
     name: 'Notice',
     component: () => import( /* webpackChunkName: 'Notice' */ '@/pages/Notice.vue')
+  },
+  {  
+    path: '/data',
+    name: 'DataRoom',
+    component: () => import( /* webpackChunkName: 'DataRoom' */ '@/pages/DataRoom.vue')
+  },
+  {  
+    path: '/news',
+    name: 'News',
+    component: () => import( /* webpackChunkName: 'News' */ '@/pages/News.vue')
+  },
+  {  
+    path: '/cont',
+    name: 'Contact',
+    component: () => import( /* webpackChunkName: 'Contact' */ '@/pages/ContactUs.vue')
   },
 
 

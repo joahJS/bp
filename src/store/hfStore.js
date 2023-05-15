@@ -19,12 +19,12 @@ export const usehfStore = defineStore('hdFt', () => {
     ])
 
     const navGroup = ref([
+        
         {
             navId: 0,
             linkTo: '',
             title: '회사소개',
             subT: 'COMPANY',
-            openStat: false,
             childrens: [
                 { subTo: '/greet', subTitle: '인사말', groupId: 0 },
                 { subTo: '/hist', subTitle: '연혁', groupId: 0 },
@@ -37,7 +37,6 @@ export const usehfStore = defineStore('hdFt', () => {
             linkTo: '',
             title: '제품소개',
             subT: 'BUSINESS',
-            openStat: false,
             childrens: [
                 { subTo: '/prod', subTitle: '제품', groupId: 1 },
             ]
@@ -47,7 +46,6 @@ export const usehfStore = defineStore('hdFt', () => {
             linkTo: '',
             title: '고객지원',
             subT: 'CUSTOMER',
-            openStat: false,
             childrens: [
                 { subTo: '/noti', subTitle: '공지사항', groupId: 2 },
                 { subTo: '/data', subTitle: '자료실', groupId: 2 },

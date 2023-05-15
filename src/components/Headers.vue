@@ -5,11 +5,20 @@
                 <img v-if="useRoute().path == '/'" data-main-logo src="/logo_w.png" alt="메인 로고 이미지">
                 <img v-else data-main-logo src="/logo_s.png" alt="메인 로고 이미지">
             </router-link>
-            <nav>
-                <div :class="{'nav-back-transp': useRoute().path == '/' }" class="nav-main-list" v-for="item in navGroup" @mouseenter="item.openStat = true" @mouseleave="item.openStat = false" ref="lists">                    
-                    <!-- <div class="nav-main-list" v-for="item in navGroup" @mouseenter="item.openStat = true" @mouseleave="item.openStat = false" ref="lists">                     -->
-                    <p>{{ item.title }}</p>
-                    <ul :class="{'nav-back-transp': useRoute().path == '/' }" v-if="item.openStat == true" class="nav-sub-list">
+            <nav @mouseenter="openStat = true" @mouseleave="openStat = false">
+                <div v-for="item in navGroup" :class="{'nav-back-transp': useRoute().path == '/' }">                    
+                    <!-- 메인메뉴 -->
+                    <div class="nav-main-list">
+                        <p>{{ item.title }}</p>
+                    </div>
+                </div>
+                <!-- 서브메뉴 -->
+                <!-- <div :class="{'nav-back-transp': useRoute().path == '/' }" v-if="openStat == true" class="nav-sub-mass"> -->
+                <div v-for="item in navGroup" :class="{'nav-back-transp': useRoute().path == '/' }" class="nav-sub-mass">
+                    <div data-nav-sub-texts>
+                        <p></p>
+                    </div>
+                    <ul v-for="item in navGroup" class="nav-sub-list">
                         <li v-for="subItem in item.childrens">
                             <router-link :to="subItem.subTo">
                                 {{ subItem.subTitle }}
@@ -17,6 +26,7 @@
                         </li>
                     </ul>
                 </div>
+                
             </nav>
             <div @click="navModalSt = !navModalSt" id="navModalBtn" :class="{'nav-modal-btn-relative': mobVerIsShow == true, 'nav-modal-opened': navModalSt == true}">
                 <span :class="{'nav-btn-white': useRoute().path == '/' }"></span>
@@ -57,6 +67,8 @@
 
     const navModalSt = ref(false)
     var mobVerIsShow = ref(false)
+
+    const openStat = ref(false)
     
     // 해상도 1600px 이하일 시 
     if ( matchMedia("(max-width: 1600px)").matches ) {
@@ -91,7 +103,7 @@
         }
     }
 
-    header.nav-back-transp, .nav-sub-list.nav-back-transp {
+    header.nav-back-transp, .nav-sub-mass.nav-back-transp {
         background-color: rgba(var(--white), 0);
         color: rgb(var(--white));
     }
@@ -123,7 +135,7 @@
     }
 
     nav {
-        @apply flex;
+        @apply flex relative;
 
         gap: .5rem;
         margin-left: auto;
@@ -137,18 +149,24 @@
         padding: 1.5rem 1.5rem;
     }
 
-    .nav-sub-list {
-        @apply flex flex-col absolute w-full;
+    .nav-sub-mass {
+        @apply flex fixed;
 
-        top: 3rem;
-        left: .75rem;
-        gap: .5rem;
+        width: 100vw;
+        top: 6rem;
+        right: 0;
         z-index: 99;
-        background-color: rgb(var(--white));
+        background-color: rgba(var(--white), .8);
         padding-top: 1rem;
+        gap: .5rem;
+    }
+    .nav-sub-list {
+        @apply flex flex-col w-full;
+
+        gap: .5rem;        
 
         li {
-            padding:.25rem .75rem;
+            padding: .5rem 1.5rem;
             user-select: none;
 
             &:hover {
