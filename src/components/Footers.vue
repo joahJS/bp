@@ -53,7 +53,7 @@
 
             p {
                 user-select: none;
-                line-height: 1.7;
+                line-height: 1.75;
             }
         }
     }
