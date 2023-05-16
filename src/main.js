@@ -26,7 +26,6 @@ import { faLocationDot } from '@fortawesome/free-solid-svg-icons'
 import { faCircleXmark, faCircleDown, faShareFromSquare } from '@fortawesome/free-regular-svg-icons'
 
 
-
 /* 위에서 import한 아이콘들을 Core library에 등록 */
 library.add(faCircleXmark, faCircleDown, faShareFromSquare, faLocationDot)
 
