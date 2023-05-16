@@ -19,8 +19,8 @@
     const prodStore = useProdStore()
     const { prodGroup } = storeToRefs(prodStore)
 
-    
-    const getId = parseInt(useRoute().params.id)
+    const getParams = useRoute();
+    const getId = parseInt(getParams.params.id)
 
     console.log(getId)
 </script>
