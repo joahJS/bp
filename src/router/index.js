@@ -38,7 +38,11 @@ const routes = [
     component: () => import( /* webpackChunkName: 'Prod' */ '@/pages/Prod.vue')
   },
 
+<<<<<<< HEAD
   //제품소개 카테고리 내 상세
+=======
+  //제품 상세페이지
+>>>>>>> main
   {  
     path: '/prodDetail/:category/:id',
     name: 'ProdDetail',
