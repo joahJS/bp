@@ -37,6 +37,8 @@ const routes = [
     name: 'Prod',
     component: () => import( /* webpackChunkName: 'Prod' */ '@/pages/Prod.vue')
   },
+
+  //제품소개 카테고리 내 상세
   {  
     path: '/prodDetail/:category/:id',
     name: 'ProdDetail',
