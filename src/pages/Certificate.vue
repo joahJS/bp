@@ -35,9 +35,6 @@
     const { certGroup } = storeToRefs(introStore)
     
 
-
-    
-
 </script>
 
 <style lang="scss" scoped>
