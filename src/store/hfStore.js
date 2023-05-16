@@ -6,15 +6,10 @@ export const usehfStore = defineStore('hdFt', () => {
 
     //Header
 
-
-    //Footer
-    const ftGroup = ref([
+    const navText = ref([
         {
-            ftLogo : '/logo_w.png',
-            address: '경남 밀양시 부북면 전사포리 사포산단 1길 90-11',
-            tel: '055.000,0000',
-            fax: '055.000.0001',
-            cpr: 'copyright ⓒ 2023 pineit all rights reserved.',
+            navSubTexts: '고객만족 품질최고를 향한 집념으로 최선을 다하는',
+            navTexts: '현대오토솔루션',
         }
     ])
 
@@ -54,9 +49,18 @@ export const usehfStore = defineStore('hdFt', () => {
             ]
         },
     ])
+
+    //Footer
+    const ftGroup = ref([
+        {
+            ftLogo : '/logo_w.png',
+            address: '경남 밀양시 부북면 전사포리 사포산단 1길 90-11',
+            tel: '055.000,0000',
+            fax: '055.000.0001',
+            cpr: 'copyright ⓒ 2023 pineit all rights reserved.',
+        }
+    ])
     
 
-
-
-    return { ftGroup, navGroup }
+    return { ftGroup, navGroup, navText }
 })

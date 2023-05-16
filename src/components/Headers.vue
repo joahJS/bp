@@ -14,9 +14,10 @@
                 </div>
                 <!-- 서브메뉴 -->
                 <!-- <div :class="{'nav-back-transp': useRoute().path == '/' }" v-if="openStat == true" class="nav-sub-mass"> -->
-                <div v-for="item in navGroup" :class="{'nav-back-transp': useRoute().path == '/' }" class="nav-sub-mass">
-                    <div data-nav-sub-texts>
-                        <p></p>
+                <div :class="{'nav-back-transp': useRoute().path == '/' }" class="nav-sub-mass">
+                    <div v-for="texts in navText" data-nav-sub-texts>
+                        <p>{{ texts.navSubTexts }}</p>
+                        <h2>{{ texts.navTexts }}</h2>
                     </div>
                     <ul v-for="item in navGroup" class="nav-sub-list">
                         <li v-for="subItem in item.childrens">
@@ -63,7 +64,7 @@
     import { storeToRefs } from 'pinia';
 
     const hfStore = usehfStore()
-    const { navGroup } = storeToRefs(hfStore)
+    const { navGroup, navText } = storeToRefs(hfStore)
 
     const navModalSt = ref(false)
     var mobVerIsShow = ref(false)
