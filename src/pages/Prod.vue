@@ -35,6 +35,7 @@
     const { prodGroup } = storeToRefs(prodStore)
     
 
+    //타이틀을 가져오기위한 헤더 스토어 import
     import { usehfStore } from '@/store/hfStore'
     const hfStore = usehfStore()
     const { navGroup } = storeToRefs(hfStore)
