@@ -24,11 +24,17 @@
                         </div>
                         <section data-nav-submenu-section>
                             <ul v-for="item in navGroup" class="nav-sub-list">
-                                <li v-for="subItem in item.childrens">
-                                    <router-link :to="subItem.subTo">
+                                <router-link :to="subItem.subTo" v-if="item.title != '제품소개'" v-for="subItem in item.childrens">
+                                    <li>
                                         {{ subItem.subTitle }}
-                                    </router-link>
-                                </li>
+                                    </li>
+                                </router-link>
+                                <router-link :to="{name: 'Prod', params: {category: subItem.category}}" v-else v-for="subItem in item.childrens">
+                                    <li>
+                                        {{ subItem.subTitle }}
+                                    </li>
+                                </router-link>
+                                
                             </ul>
                         </section>
                     </div>
@@ -174,13 +180,14 @@
 
         height: fit-content;
         padding: 1.5rem 1.5rem;
-        width: 7rem;
+        width: 10rem;
     }
 
     [data-nav-inner-sub] {
         @apply flex w-full;
 
         gap: .5rem;
+        padding: 1rem 0 2rem;
     }
 
     [data-nav-submenu-section] {
@@ -205,7 +212,7 @@
     .nav-sub-list {
         @apply flex flex-col;
 
-        width: 7rem;
+        width: 10rem;
         gap: .5rem;        
 
         li {
@@ -288,7 +295,6 @@
             &+div {
                 margin-top: 3.75rem;
             }
-            
         }
 
         > section {
@@ -299,7 +305,6 @@
             transform: translate(-50%, -50%);
 
         }
-
     }
 
     [data-nav-modal-head] {
@@ -308,7 +313,7 @@
         user-select: none;
 
         span {
-            font-size: 1.25rem;
+            font-size: 1rem;
             opacity: .5;
         }
     }
