@@ -1,7 +1,7 @@
 <template>
     <SubpHero />
     <section class="common-inner">
-        <h1 data-common-head-title>뉴스</h1>
+        <h1 data-common-head-title>문의하기</h1>
         <div id="contactTexts">
             <form method="POST" action="https://script.google.com/macros/s/AKfycbzQwXdbxWnh2QZOeeoPNfmGoXcKGIBBKmybf_ZmOG8vxhbFSC8-gSl4MhlIs-iZ7StgTw/exec" target="frAttachFiles">
                 <div class="contact-input-box w-full ">

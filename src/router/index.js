@@ -33,14 +33,14 @@ const routes = [
 
   //제품소개
   {  
-    path: '/cate/:id',
-    name: 'Cate',
-    component: () => import( /* webpackChunkName: 'Cate' */ '@/pages/Cate.vue')
+    path: '/prod/:category',
+    name: 'Prod',
+    component: () => import( /* webpackChunkName: 'Prod' */ '@/pages/Prod.vue')
   },
   {  
-    path: '/cateDetail/:id',
-    name: 'CateDetail',
-    component: () => import( /* webpackChunkName: 'CateDetail' */ '@/pages/CateDetail.vue')
+    path: '/prodDetail/:category/:id',
+    name: 'ProdDetail',
+    component: () => import( /* webpackChunkName: 'ProdDetail' */ '@/pages/ProdDetail.vue')
   },
 
 

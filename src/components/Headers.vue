@@ -6,29 +6,43 @@
                 <img v-else data-main-logo src="/logo_s.png" alt="메인 로고 이미지">
             </router-link>
             <nav @mouseenter="openStat = true" @mouseleave="openStat = false">
-                <div v-for="item in navGroup" :class="{'nav-back-transp': useRoute().path == '/' }">                    
+                <ul v-for="item in navGroup" :class="{'nav-back-transp': useRoute().path == '/' }">                    
                     <!-- 메인메뉴 -->
-                    <div class="nav-main-list">
+                    <li class="nav-main-menu">
                         <p>{{ item.title }}</p>
-                    </div>
-                </div>
+                    </li>
+                </ul>
                 <!-- 서브메뉴 -->
-                <!-- <div :class="{'nav-back-transp': useRoute().path == '/' }" v-if="openStat == true" class="nav-sub-mass"> -->
-                <div v-for="item in navGroup" :class="{'nav-back-transp': useRoute().path == '/' }" class="nav-sub-mass">
-                    <div data-nav-sub-texts>
-                        <p></p>
+                
+                <div :class="{'nav-back-transp': useRoute().path == '/' }" v-if="openStat == true" class="nav-sub-mass">
+                    <div data-nav-inner-sub class="common-inner">
+                        <div v-for="texts in navText" data-nav-sub-texts>
+                            <hgroup>
+                                <p>{{ texts.navSubTexts }}</p>
+                                <h2>{{ texts.navTexts }}</h2>
+                            </hgroup>
+                        </div>
+                        <section data-nav-submenu-section>
+                            <ul v-for="item in navGroup" class="nav-sub-list">
+                                <router-link :to="subItem.subTo" v-if="item.title != '제품소개'" v-for="subItem in item.childrens">
+                                    <li>
+                                        {{ subItem.subTitle }}
+                                    </li>
+                                </router-link>
+                                <router-link :to="{name: 'Prod', params: {category: subItem.category}}" v-else v-for="subItem in item.childrens">
+                                    <li>
+                                        {{ subItem.subTitle }}
+                                    </li>
+                                </router-link>
+                                
+                            </ul>
+                        </section>
                     </div>
-                    <ul v-for="item in navGroup" class="nav-sub-list">
-                        <li v-for="subItem in item.childrens">
-                            <router-link :to="subItem.subTo">
-                                {{ subItem.subTitle }}
-                            </router-link>
-                        </li>
-                    </ul>
+                    
                 </div>
                 
             </nav>
-            <div @click="navModalSt = !navModalSt" id="navModalBtn" :class="{'nav-modal-btn-relative': mobVerIsShow == true, 'nav-modal-opened': navModalSt == true}">
+            <div @click="navModalSt = !navModalSt" id="navModalBtn" :class="{'nav-modal-btn-absolute': mobVerIsShow == true, 'nav-modal-opened': navModalSt == true}">
                 <span :class="{'nav-btn-white': useRoute().path == '/' }"></span>
                 <span :class="{'nav-btn-white': useRoute().path == '/' }"></span>
                 <span :class="{'nav-btn-white': useRoute().path == '/' }"></span>
@@ -63,7 +77,7 @@
     import { storeToRefs } from 'pinia';
 
     const hfStore = usehfStore()
-    const { navGroup } = storeToRefs(hfStore)
+    const { navGroup, navText } = storeToRefs(hfStore)
 
     const navModalSt = ref(false)
     var mobVerIsShow = ref(false)
@@ -108,7 +122,7 @@
         color: rgb(var(--white));
     }
 
-    .nav-main-list.nav-back-transp:hover {
+    .nav-main-menu.nav-back-transp:hover {
         @apply relative;
 
         &:after {
@@ -127,6 +141,25 @@
         // margin-bottom: -2px;
     }
 
+    [data-nav-sub-texts] {
+        @apply relative w-full;
+
+        padding-right: 2rem;
+
+        hgroup {
+            @apply absolute;
+
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+        }
+
+        h2 {
+            font-size: var(--font32);
+            font-weight: bold;
+        }
+    }
+
     [data-main-logo] {
         @apply cursor-pointer;
 
@@ -142,11 +175,26 @@
         margin-top: 1.25rem;
     }
 
-    .nav-main-list {
+    .nav-main-menu {
         @apply relative cursor-pointer;
 
         height: fit-content;
         padding: 1.5rem 1.5rem;
+        width: 10rem;
+    }
+
+    [data-nav-inner-sub] {
+        @apply flex w-full;
+
+        gap: .5rem;
+        padding: 1rem 0 2rem;
+    }
+
+    [data-nav-submenu-section] {
+        @apply flex;
+
+        gap: .5rem;
+        margin-left: auto;
     }
 
     .nav-sub-mass {
@@ -154,15 +202,17 @@
 
         width: 100vw;
         top: 6rem;
-        right: 0;
+        right: 50%;
+        transform: translateX(50%);
         z-index: 99;
         background-color: rgba(var(--white), .8);
         padding-top: 1rem;
-        gap: .5rem;
+        transition: all 1s;
     }
     .nav-sub-list {
-        @apply flex flex-col w-full;
+        @apply flex flex-col;
 
+        width: 10rem;
         gap: .5rem;        
 
         li {
@@ -196,15 +246,15 @@
             }
         }
 
-        &.nav-modal-btn-relative {
-            @apply relative;
+        &.nav-modal-btn-absolute {
+            @apply absolute;
 
             right: 0;
             margin-left: 3.25rem;
         }
 
         &.nav-modal-opened {
-            z-index: 999;
+            z-index: 99999;
 
             span {
                 @apply relative;
@@ -234,7 +284,8 @@
 
         width: 50vw;
         height: 100vh;
-        background-color: rgba(var(--black) .8);
+        background-color: rgba(var(--black) .85);
+        z-index: 9999;
 
         [data-nav-modal-menus] {
             @apply flex flex-col;    
@@ -244,7 +295,6 @@
             &+div {
                 margin-top: 3.75rem;
             }
-            
         }
 
         > section {
@@ -255,7 +305,6 @@
             transform: translate(-50%, -50%);
 
         }
-
     }
 
     [data-nav-modal-head] {
@@ -264,7 +313,8 @@
         user-select: none;
 
         span {
-            font-size: 1.25rem;
+            font-size: 1rem;
+            opacity: .5;
         }
     }
 
@@ -285,15 +335,24 @@
     }
 
     //mediaquery
-    @media (max-width: 767px){
+    @media (max-width: 767px) {
         nav {
             display: none;
+        }
+
+        #navModal {
+            width: 100vw;
+
+            > section {
+                width: 80%;
+            }
         }
 
         #navModalBtn {
             margin-top: 0;
             margin-left: auto;
         }
+
     }
 
 </style>
