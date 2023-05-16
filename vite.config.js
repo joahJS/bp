@@ -14,6 +14,6 @@ export default defineConfig({
     }
   },
   build: {},
-  //base: '/pine-boiler-plate/',
+  
   historyApiFallback: true,
 })

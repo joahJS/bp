@@ -13,23 +13,25 @@
                     </li>
                 </ul>
                 <!-- 서브메뉴 -->
-                <!-- <div :class="{'nav-back-transp': useRoute().path == '/' }" v-if="openStat == true" class="nav-sub-mass"> -->
-                <div :class="{'nav-back-transp': useRoute().path == '/' }" class="nav-sub-mass common-inner">
-                    <div v-for="texts in navText" data-nav-sub-texts>
-                        <hgroup>
-                            <p>{{ texts.navSubTexts }}</p>
-                            <h2>{{ texts.navTexts }}</h2>
-                        </hgroup>
+                
+                <div :class="{'nav-back-transp': useRoute().path == '/' }" v-if="openStat == true" class="nav-sub-mass">
+                    <div data-nav-inner-sub class="common-inner">
+                        <div v-for="texts in navText" data-nav-sub-texts>
+                            <hgroup>
+                                <p>{{ texts.navSubTexts }}</p>
+                                <h2>{{ texts.navTexts }}</h2>
+                            </hgroup>
+                        </div>
+                        <section data-nav-submenu-section>
+                            <ul v-for="item in navGroup" class="nav-sub-list">
+                                <li v-for="subItem in item.childrens">
+                                    <router-link :to="subItem.subTo">
+                                        {{ subItem.subTitle }}
+                                    </router-link>
+                                </li>
+                            </ul>
+                        </section>
                     </div>
-                    <section data-nav-submenu-section>
-                        <ul v-for="item in navGroup" class="nav-sub-list">
-                            <li v-for="subItem in item.childrens">
-                                <router-link :to="subItem.subTo">
-                                    {{ subItem.subTitle }}
-                                </router-link>
-                            </li>
-                        </ul>
-                    </section>
                     
                 </div>
                 
@@ -175,6 +177,12 @@
         width: 7rem;
     }
 
+    [data-nav-inner-sub] {
+        @apply flex w-full;
+
+        gap: .5rem;
+    }
+
     [data-nav-submenu-section] {
         @apply flex;
 
@@ -192,7 +200,7 @@
         z-index: 99;
         background-color: rgba(var(--white), .8);
         padding-top: 1rem;
-        gap: .5rem;
+        transition: all 1s;
     }
     .nav-sub-list {
         @apply flex flex-col;
