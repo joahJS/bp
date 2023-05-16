@@ -9,7 +9,7 @@ export default defineConfig({
     alias: {
         '@' : path.resolve(__dirname, './src'),
         pb$ : path.resolve(__dirname, './public'),
-        basepath$ : path.resolve(__dirname, '/pine-boiler-plate'),
+        
       
     }
   },

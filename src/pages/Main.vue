@@ -2,7 +2,7 @@
     <section id="mainSection">
         <div data-main-catch-phrase class="common-inner">
             <div>
-                <p>고객을 먼저 생각하고, 고객이 만족하는</p>    
+                <p>고객을 먼저 생각하고, <span class="m-block">고객이 만족하는</span></p>    
             </div>
             <div data-main-catch-bottom>    
                 <h1>HYUNDAI AUTO SOLUTION</h1>
@@ -46,10 +46,12 @@
         p {
             font-size: 1.25rem;
             font-weight: 100;
+            filter: drop-shadow(0 0 4px rgba(var(--black) 1));
         }
 
         h1 {
             font-size: 2.5rem;
+            filter: drop-shadow(0 0 4px rgba(var(--black) 1));
         }
 
         > div {
@@ -72,6 +74,43 @@
             }
         }
     }
+
+
+
+    //mediaquery
+    @media (max-width: 767px) {
+
+        .m-block {
+            display: block;
+        }
+
+        [data-main-catch-phrase] {
+
+            h1 {
+                font-size: var(--font32);
+            }
+
+            > div {
+                transform: translate(-50%, 0);
+            }
+
+            [data-main-catch-bottom] {
+                grid-template-columns: 1fr;
+
+                div {
+                    height: 0;
+                }
+            }
+        }
+
+    }
+
+
+
+
+
+
+
 
     
 </style>
