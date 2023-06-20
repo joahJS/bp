@@ -4,8 +4,7 @@ import App from './App.vue' // 최상위 App.vue 컴포넌트 지정
 import router from './router/index.js'
 import 'vue-global-api'
 
-import './assets/scss/style.css'
-
+import '/public/assets/scss/style.css'
 
 const pinia = createPinia()
 const app = createApp(App)
