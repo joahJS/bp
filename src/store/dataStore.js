@@ -8,7 +8,7 @@ export const useDataStore = defineStore('dataRoom', () => {
         {
             imgSrc: '/img/sample_01.jpg',
             date: '2023',
-            title: '현대오토솔루션 제품소개 카달로그',
+            title: '소나무정보기술 제품소개 카달로그',
             texts: `신기술 챗GPT를 이용한 고객응대 프로그램과 
                     자동채팅기능 페이지 추가!
                     

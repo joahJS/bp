@@ -1,7 +1,6 @@
 // 회사소개 메뉴 내 모든 서브메뉴 데이터
 
 import { defineStore } from "pinia"
-import { loadConfigFromFile } from "vite"
 
 export const useIntroStore = defineStore('intro', () => {
 
@@ -10,15 +9,15 @@ export const useIntroStore = defineStore('intro', () => {
         {
             img: '/ceo_sample.jpg',
             title: '성실, 근면, 창조',
-            subT: "테스트용 테스트용 테스트용",
+            subT: "사훈 아래 고객만족 품질최고를 향한 집념으로 최선을 다하고 있는 저희 '주식회사 소나무정보기술' 홈페이지를 찾아주신 고객 여러분께 감사드립니다.",
             children: [
-                {texts: "테스트용 문구 작성"},
-                {texts: "lorem"},
-                {texts: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsam atque delectus sint. Corrupti unde, aspernatur ducimus quod, tempore debitis, maiores excepturi dolore tenetur totam ex quia reprehenderit officia magni? Nemo."},
+                {texts: "본사는 핫스탬핑 공법으로 차량용 충격 보강재의 개발 및 생산을 전문으로 하고 있으며, 축적된 기술력과 품질로 지속적으로 성장하여, 업계 선두주자로 위치하고 있습니다. 주식회사 소나무정보기술은 최고의 품질과 더 나은 환경경영을 실천하기 위해 고객 여러분의 곁에서 항상 최선을 다할 것을 약속드리겠습니다."},
+                {texts: "충족과 변화를 요구하는 시대에 발맞추어, 인성과 기본을 갖춘 임직원은 고객을 만족시키는 품질과 납기 그리고 최상의 경쟁력으로 제품을 공급하기 위하여 끊임없이 노력하고 있으며, 내실 성장을 바탕으로 '고객이 찾는 회사'로 만들고자 최선을 다할 것입니다."},
+                {texts: "다가오는 미래에 대비하고 고객과 생각을 같이하는 '꿈과 희망의 주식회사 소나무정보기술'이 될 것을 약속드리며, 여러분의 한결 같은 격려와 성원을 부탁드립니다."},
                 {texts: "감사합니다."}
             ],
-            position: '우리회사 (주) 대표이사',
-            name: '아무개',
+            position: '주식회사 소나무정보기술 대표이사',
+            name: '최재영',
         },
     ])
 

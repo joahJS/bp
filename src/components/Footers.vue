@@ -44,6 +44,10 @@
             @apply flex w-full;
 
             gap: 2rem;
+
+            img {
+                width: 4rem;
+            }
         }
 
         section {
@@ -53,7 +57,7 @@
 
             p {
                 user-select: none;
-                line-height: 1.75;
+                line-height: 1.7;
             }
         }
     }
@@ -82,6 +86,23 @@
 
         user-select: none;
         pointer-events: none;
+    }
+
+    //mediaquery
+    @media screen and (max-width: 767px) {
+        footer {
+
+            font-size: var(--fontM);
+            > .common-inner {
+                @apply flex-col;
+
+                [data-ft-logo] {
+                    margin: 0 auto;
+                }
+            }
+        }
+
+        
     }
 
 

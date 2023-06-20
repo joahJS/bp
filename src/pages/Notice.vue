@@ -2,7 +2,7 @@
     <SubpHero />
     <section id="histBody" class="common-inner">
         <h1 data-common-head-title>공지사항</h1>
-        <div id="notiTexts">
+        <div id="notiTexts" class="ani_down">
             <!-- item -->            
             <div v-for="item in noticeGroup" data-notice-item @click="[isOpened = true, getNum(item.index)]">                
                 <div data-notice-item-dates>
@@ -69,7 +69,7 @@
         @apply grid;
 
         grid-template-columns: repeat(4, 1fr);
-        gap: 3rem;
+        gap: 2rem;      
     }
 
     [data-notice-item] {
@@ -118,6 +118,7 @@
         h3 {
             font-weight: bold;
             margin-top: 2rem;
+            font-size: var(--fontMT);
         }
 
         p {
@@ -148,11 +149,13 @@
         width: 100vw;
         height: 100vh;
         background-color: rgba(var(--black) .15);
+        z-index: 10;
 
         [data-notice-item-texts] {
+
             h3 {
                 font-size: 2rem;
-                margin-top: 3.5rem;
+                margin-top: 3rem;
             }
 
             p {
@@ -206,6 +209,7 @@
         min-width: 50vw;
         max-width: 60rem;
         height: 75vh;
+        border-radius: 0.5rem;
         
     }
 
@@ -225,7 +229,29 @@
             gap: 1rem;
         }
 
+        [data-notice-item] {
+            padding: 1.5rem 2rem;
+        }
+
+        [data-notice-item-texts] {
+            h3 {
+                margin-top: 1.5rem;
+            }
+        }
+
+        [data-notice-item-dates] {
+
+            h2 {
+                font-size: var(--fontST);
+            }
+        }
+
         [data-notice-modal] {
+
+            [data-notice-item-dates] {
+                padding-bottom: 1rem;
+            }
+
             [data-notice-modal-texts] {
                 padding: 1.5rem 1.5rem 5rem 1.5rem;
                 min-height: 50vh;
@@ -240,6 +266,17 @@
                     font-size: var(--fontM);
                 }
 
+            }
+
+            [data-notice-item-texts] {
+
+                h3 {
+                    margin-top: 2rem;
+                }
+
+                p {
+                    line-height: 1.75;
+                }
             }
         }
     }

@@ -2,7 +2,7 @@
     <SubpHero />
         <section class="common-inner">
             <h1 data-common-head-title>인증서</h1>
-            <div id="cerTexts">
+            <div id="cerTexts" class="ani_down">
                 <div @click="item.detailView = !item.detailView" v-for="item in certGroup" data-cert-item>
                     <article>
                         <img data-cert-thumnail :src="item.thumImg" alt="">

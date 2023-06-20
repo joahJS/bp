@@ -2,7 +2,7 @@
     <SubpHero />
         <section id="histBody" class="common-inner">
             <h1 data-common-head-title>연혁</h1>
-            <div id="histTexts">
+            <div id="histTexts" class="ani_down">
                 <div data-hist-line v-for="item in hsGroup">
                     <article data-hist-years>
                         <section>
@@ -80,7 +80,8 @@
             }
 
             p {
-                font-size: 1.5rem;
+                font-size: 1.75rem;
+                font-weight: bold;
             }
         }
     }
@@ -150,7 +151,7 @@
             @apply flex flex-col;
 
             margin-left: 2.5rem;
-            margin-top: 2.75rem;
+            margin-top: 2rem;
             user-select: none;
 
             li {

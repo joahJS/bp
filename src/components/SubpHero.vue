@@ -3,11 +3,15 @@
         <h2 data-subp-header> </h2>
             <div class="common-inner" data-subp-bottom v-for="item in navGroup">
                 
-                    <ul data-subp-tap>
+                    <ul v-if="item.childrens.find(e => e.subTo === '/prod')" data-subp-tap>
+                        <router-link v-for="subItem in item.childrens" :to="subItem.category">
+                            <li v-if="item.childrens.find(e => e.category === getCate)" :class="{'recent-page':subItem.category == getCate}">{{ subItem.category }}</li>
+                        </router-link>
+                    </ul>
+
+                    <ul v-else data-subp-tap>
                         <router-link v-for="subItem in item.childrens" :to="subItem.subTo">
-                            
                             <li v-if="item.childrens.find(e => e.subTo === useRoute().path)" :class="{'recent-page':subItem.subTo == useRoute().path}">{{ subItem.subTitle }}</li>
-                            <!-- <li :class="{'recent-page':subItem.subTo == useRoute().path}">{{ subItem.subTitle }}</li> -->
                         </router-link>
                     </ul>
                 
@@ -24,6 +28,12 @@
     const hfStore = usehfStore()
     const { navGroup } = storeToRefs(hfStore)
 
+    const getParams = useRoute();
+    const getCate = getParams.params.category
+
+    
+    
+    // console.log(useRoute().path)
 
 </script>
 
@@ -69,7 +79,6 @@
 
             background-color: rgba(var(--white), .8);
             border-radius: .25rem .25rem 0 0;
-            max-width: 10rem;
             padding: 1.2rem 0;
 
             &.recent-page {
@@ -86,6 +95,13 @@
 
         [data-subp-tap] li {
             padding: .5rem 0;
+            font-size: var(--fontM);
+        }
+
+        [data-path-subtexts] {
+            p {
+                gap: 1rem;
+            }
         }
     }
 </style>

@@ -3,7 +3,7 @@
         <div class="common-inner">
             <router-link to="/">
                 <img v-if="useRoute().path == '/'" data-main-logo src="/logo_w.png" alt="메인 로고 이미지">
-                <img v-else data-main-logo src="/logo_s.png" alt="메인 로고 이미지">
+                <img v-else data-main-logo src="/CI_header.svg" alt="메인 로고 이미지">
             </router-link>
             <nav @mouseenter="openStat = true" @mouseleave="openStat = false">
                 <ul v-for="item in navGroup" :class="{'nav-back-transp': useRoute().path == '/' }">                    
@@ -56,12 +56,16 @@
                         <span>{{ item.subT }}</span>
                     </p>
                     <ul data-nav-modal-list>
-                        
-                        <li v-for="subItem in item.childrens">
-                            <router-link :to="subItem.subTo">
+                        <router-link :to="subItem.subTo" v-if="item.title != '제품소개'" v-for="subItem in item.childrens">
+                            <li>
+                                    {{ subItem.subTitle }}
+                            </li>
+                        </router-link>
+                        <router-link :to="{name: 'Prod', params: {category: subItem.category}}" v-else v-for="subItem in item.childrens">
+                            <li>
                                 {{ subItem.subTitle }}
-                            </router-link>
-                        </li>
+                            </li>
+                        </router-link>
                     </ul>
                 </div>
             </section>
@@ -163,7 +167,7 @@
     [data-main-logo] {
         @apply cursor-pointer;
 
-        width: 3rem;
+        width: 2.5rem;
 
     }
 
@@ -187,7 +191,7 @@
         @apply flex w-full;
 
         gap: .5rem;
-        padding: 1rem 0 2rem;
+        padding: 1rem .5rem 2rem;
     }
 
     [data-nav-submenu-section] {
@@ -247,9 +251,9 @@
         }
 
         &.nav-modal-btn-absolute {
-            @apply absolute;
+            @apply relative;
 
-            right: 0;
+            right: auto;
             margin-left: 3.25rem;
         }
 
@@ -292,7 +296,7 @@
 
             color: rgb(var(--white));
 
-            &+div {
+            & + div {
                 margin-top: 3.75rem;
             }
         }
@@ -303,12 +307,11 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-
         }
     }
 
     [data-nav-modal-head] {
-        font-size: 2rem;
+        font-size: var(--fontT);
         font-weight: 300;
         user-select: none;
 
@@ -335,7 +338,38 @@
     }
 
     //mediaquery
-    @media (max-width: 767px) {
+
+    
+    @media (max-width: 1024px) {
+        [data-nav-modal-head] {
+            line-height: 1;
+        }
+
+        [data-nav-modal-list] {
+            gap: 1rem;
+        }
+    }
+
+    @media (max-width: 768px) {
+
+        header #navModalBtn {
+            right: 0;
+        }
+
+        header {
+            > .common-inner {
+                justify-content: space-between;        
+            }
+        }
+
+        [data-nav-modal-head] {
+            font-size: var(--fontST);
+        }
+        
+        [data-nav-modal-list] {
+            gap: 1rem;
+        }
+
         nav {
             display: none;
         }
@@ -346,11 +380,18 @@
             > section {
                 width: 80%;
             }
+
+            [data-nav-modal-menus] {
+
+                & + div {
+                    margin-top: 2.5rem;
+                }
+            }
         }
 
-        #navModalBtn {
+        #navModalBtn.nav-modal-btn-absolute {
             margin-top: 0;
-            margin-left: auto;
+            margin-left: 0;
         }
 
     }

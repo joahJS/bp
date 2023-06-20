@@ -2,10 +2,10 @@
     <section id="mainSection">
         <div data-main-catch-phrase class="common-inner">
             <div>
-                <p>Lorem ipsum, <span class="m-block">dolor sit amet consectetur adipisicing elit.</span></p>    
+                <p>고객을 먼저 생각하고, <span class="m-block">고객이 만족하는</span></p>    
             </div>
             <div data-main-catch-bottom>    
-                <h1> Ipsam atque delectus sint. Corrupti unde, aspernatur ducimus quod, tempore debitis, maiores excepturi dolore tenetur totam ex quia reprehenderit officia magni? Nemo.</h1>
+                <h1>주식회사 소나무정보기술</h1>
                 <div></div>
             </div>
             
@@ -69,9 +69,11 @@
 
             div {
                 height: 2px;
-                background-color: rgb(var(--white));
+                background: rgb(var(--white));
                 
             }
+
+
         }
     }
 

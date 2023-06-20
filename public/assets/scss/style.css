@@ -37,8 +37,20 @@
   @apply font-bold w-full;
   margin: 6rem 0 5rem;
   font-size: var(--font32);
+  animation-name: move_down;
+  animation-duration: 1s;
 }
 
+@keyframes move_down {
+  from {
+    opacity: 0;
+    transform: translateY(15%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 .common-button-style {
   @apply cursor-pointer flex justify-center items-center absolute;
   background-color: rgb(var(--white));
@@ -62,6 +74,21 @@
   color: rgba(var(--white), 1);
 }
 
+.ani_down {
+  animation-name: move_down;
+  animation-duration: 1s;
+}
+
+@keyframes move_down {
+  from {
+    opacity: 0;
+    transform: translateY(-3%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 .common-ellipsis {
   text-overflow: ellipsis;
   overflow: hidden;
@@ -70,12 +97,19 @@
   -webkit-line-clamp: 2;
 }
 
+@media (max-width: 767px) {
+  body [data-common-head-title] {
+    margin: 4rem 0 4rem;
+  }
+}
 /* _variable.scss */
 :root {
   --fontBase: 1rem;
-  --fontM: 0.9rem;
+  --fontM: 14px;
   --font32: 2rem;
   --fontMT: 1.25rem;
+  --fontST: 1.5rem;
+  --fontT: 2rem;
   --black: 0, 0, 0,;
   --white: 255, 255, 255;
   --main-clr: 13, 26, 91;

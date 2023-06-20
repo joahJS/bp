@@ -6,6 +6,7 @@ import 'vue-global-api'
 
 import '/public/assets/scss/style.css'
 
+
 const pinia = createPinia()
 const app = createApp(App)
 
@@ -23,6 +24,7 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 /* 원하는 아이콘을 개별적으로 import */
 import { faLocationDot } from '@fortawesome/free-solid-svg-icons'
 import { faCircleXmark, faCircleDown, faShareFromSquare } from '@fortawesome/free-regular-svg-icons'
+
 
 
 /* 위에서 import한 아이콘들을 Core library에 등록 */

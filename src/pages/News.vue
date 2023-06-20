@@ -2,7 +2,7 @@
     <SubpHero />
     <section class="common-inner">
         <h1 data-common-head-title>뉴스</h1>
-        <div id="newsTexts">
+        <div id="newsTexts" class="ani_down">
             <div v-for="item in newsGroup" data-news-item>
                 <a :href="item.linkTo" target="_blank">
                     <img :src="item.imgSrc" alt="">

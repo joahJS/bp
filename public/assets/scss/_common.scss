@@ -53,6 +53,21 @@
 
     margin: 6rem 0 5rem;
     font-size: var(--font32);
+    animation-name: move_down;
+    animation-duration: 1s;
+
+}
+
+@keyframes move_down {
+    from {
+        opacity: 0;
+        transform: translateY(15%);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .common-button-style {
@@ -81,6 +96,27 @@
     }
 }
 
+// animate 공통
+
+.ani_down {
+    animation-name: move_down;
+    animation-duration: 1s;        
+}
+
+@keyframes move_down {
+    from {
+        opacity: 0;
+        transform: translateY(-3%);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
 
 //말줄임효과 - 사용시 line clamp(줄 수)와 height(높이) 각 아이템에 맞게 수정
 .common-ellipsis {
@@ -90,3 +126,11 @@
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
 }
+
+    //mediaquery
+    @media (max-width: 767px) {
+        body [data-common-head-title] {
+            // font-size: var(--fontST);
+            margin: 4rem 0 4rem;
+        }
+    }

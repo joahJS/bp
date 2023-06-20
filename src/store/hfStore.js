@@ -8,8 +8,8 @@ export const usehfStore = defineStore('hdFt', () => {
 
     const navText = ref([
         {
-            navSubTexts: '여기는',
-            navTexts: '테스트용 페이지입니다.',
+            navSubTexts: '고객만족과 최고의 품질최을 향한 집념으로 최선을 다하는',
+            navTexts: '(주)소나무정보기술',
         }
     ])
 
@@ -33,9 +33,9 @@ export const usehfStore = defineStore('hdFt', () => {
             title: '제품소개',
             subT: 'BUSINESS',
             childrens: [
-                { subTo: '/prod', subTitle: '제품01', category: 'stiffener' },
-                { subTo: '/prod', subTitle: '제품02', category: 'doorImpactBeam' },
-                { subTo: '/prod', subTitle: '제품03', category: 'bumperBackBeam' },
+                { subTo: '/prod', subTitle: '스티프너', category: 'stiffener' },
+                { subTo: '/prod', subTitle: '도어 임팩트 빔', category: 'doorImpactBeam' },
+                { subTo: '/prod', subTitle: '후방범퍼 빔', category: 'bumperBackBeam' },
             ]
         },
         {
@@ -55,8 +55,8 @@ export const usehfStore = defineStore('hdFt', () => {
     //Footer
     const ftGroup = ref([
         {
-            ftLogo : '/logo_w.png',
-            address: '테스트용_주소 작성',
+            ftLogo : '/CI_header_white.svg',
+            address: '경남 밀양시 부북면 전사포리 사포산단 1길 90-11',
             tel: '055.000,0000',
             fax: '055.000.0001',
             cpr: 'copyright ⓒ 2023 pineit all rights reserved.',

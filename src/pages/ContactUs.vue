@@ -265,6 +265,15 @@ form {
     }
     
     @media screen and (max-width: 768px) {
+        [data-submit-comp-window] {
+            padding: 1rem 2rem 3rem 2rem;
+            width: 80vw;
+            align-items: center;
+
+            button.common-button-style {
+                bottom: -1.75rem;
+            }
+        }
 
         .contact-input-box {
             @apply w-full

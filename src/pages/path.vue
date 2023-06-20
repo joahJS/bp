@@ -90,7 +90,7 @@
         p {
             @apply flex items-center;
 
-            gap: .5rem;            
+            gap: 1rem;            
         }
 
         i {
