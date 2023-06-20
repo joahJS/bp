@@ -8,16 +8,16 @@ export const useNewsStore = defineStore('news', () => {
         {
             imgSrc: '/news/news_sample.jpg',
             reporter: 'abc통신',
-            title: '황사·미세먼지·특보 따로 관리...미세먼지 대처 가능해?',
+            title: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
             linkTo: 'http://www.pineit.co.kr',
-            subTexts: `미세먼지 문제가 이렇게 심각하지만 예보와 특보 체계는 엉망입니다. 황사는 기상청이, 미세먼지는 국립환경과학원이 담당하는데, 특보는 또 각 지자체에서 발령한다고 합니다.`,
+            subTexts: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Et reiciendis voluptatibus neque molestias esse perspiciatis nihil corporis dolorem dolore. Minus amet nulla ducimus quaerat tempora? Ullam, quam iure. Delectus, repudiandae.`,
         },
         {
             imgSrc: '/news/news_sample.jpg',
             reporter: 'abc통신',
-            title: '황사·미세먼지·특보 따로 관리...미세먼지 대처 가능해?',
+            title: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
             linkTo: 'http://www.pineit.co.kr',
-            subTexts: `미세먼지 문제가 이렇게 심각하지만 예보와 특보 체계는 엉망입니다. 황사는 기상청이, 미세먼지는 국립환경과학원이 담당하는데, 특보는 또 각 지자체에서 발령한다고 합니다.`,
+            subTexts: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Et reiciendis voluptatibus neque molestias esse perspiciatis nihil corporis dolorem dolore. Minus amet nulla ducimus quaerat tempora? Ullam, quam iure. Delectus, repudiandae.`,
         },
     ])
 
